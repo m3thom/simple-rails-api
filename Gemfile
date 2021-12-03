@@ -32,9 +32,11 @@ gem 'rabl'
 # Also add either `oj` or `yajl-ruby` as the JSON parser
 gem 'oj'
 
+# Authentication gems
 gem 'devise', '~> 4.8.0'
-
 gem 'devise-jwt', '~> 0.9.0'
+gem 'devise-encryptable'
+# gem 'devise_aes_encryptable'
 
 gem 'dotenv-rails'
 
