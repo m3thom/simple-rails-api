@@ -6,7 +6,7 @@ Rails.application.routes.draw do
                  registrations: 'users/registrations'
              }
   devise_scope :user do
-    post 'users/re_authenticate', controller: 'users/sessions', action: 're_authenticate'
+    post 'users/refresh_token', controller: 'users/sessions', action: 'refresh_token'
   end
 
   resources :comments

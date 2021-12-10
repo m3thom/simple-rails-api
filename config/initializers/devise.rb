@@ -322,11 +322,11 @@ Devise.setup do |config|
     jwt.dispatch_requests = [
         ['POST', %r{^/users$}], # If you change registration path for devise, do not forget to change this too.
         ['POST', %r{^/users/sign_in$}], # If you change sign_in path for devise, do not forget to change this too.
-        ['POST', %r{^/users/re_authenticate$}] # If you change re_authenticate path for devise, do not forget to change this too.
+        ['POST', %r{^/users/refresh_token$}] # If you change re_authenticate path for devise, do not forget to change this too.
     ]
     jwt.revocation_requests = [
         ['DELETE', %r{^/users/sign_out$}]
     ]
-    jwt.expiration_time = 7.days.to_i
+    jwt.expiration_time = 3.days.to_i
   end
 end

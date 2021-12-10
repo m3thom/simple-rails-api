@@ -1,9 +1,9 @@
 class Users::SessionsController < Devise::SessionsController
   include Users::UsersAuthenticable
 
-  prepend_before_action :require_no_authentication, only: [:re_authenticate]
+  prepend_before_action :require_no_authentication, only: [:refresh_token]
 
-  def re_authenticate
+  def refresh_token
     self.resource = warden.authenticate!(auth_options)
     respond_with(resource)
   end

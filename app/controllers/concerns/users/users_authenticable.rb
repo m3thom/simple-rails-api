@@ -3,9 +3,15 @@ module Users::UsersAuthenticable
 
   private
 
-  def respond_with(resource, _opts = {})
-    # Return token to client to be use in future request.
-    render json: {id: resource.id, email: resource.email, auth_token: "#{current_token}"}
+  def respond_with(resource, **_opts)
+    render json: {
+        user: {
+            id: resource.id,
+            email: resource.email,
+            name: resource.name,
+        },
+        token: current_token
+    }
   end
 
   def current_token

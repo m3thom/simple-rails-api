@@ -40,6 +40,11 @@ gem 'devise-encryptable'
 
 gem 'dotenv-rails'
 
+# An HTTP client library that provides a common interface over many adapters
+gem 'faraday', '~> 1.8.0'
+
+# gem 'tipi'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
