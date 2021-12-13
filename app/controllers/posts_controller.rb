@@ -1,15 +1,18 @@
 class PostsController < ApplicationController
   before_action :load_post, only: [:show, :update, :destroy]
 
+  # include ActionController::Helpers
+  # helper RablHelper
+
   def index
-    @posts = Post.all
+    @pagy, @posts = pagy(Post.all)
   end
 
   def create
     @post = Post.new(post_params)
 
     if @post.save
-      render json: @post, status: :created, location: @post
+      render 'show'
     else
       render json: @post.errors, status: :unprocessable_entity
     end
@@ -17,7 +20,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      render json: @post, status: :ok, location: @post
+      render 'show'
     else
       render json: @post.errors, status: :unprocessable_entity
     end
@@ -28,7 +31,7 @@ class PostsController < ApplicationController
 
   def destroy
     if @post.destroy
-      render json: @post, status: :ok, location: @post
+      render 'show'
     else
       render json: @post.errors, status: :unprocessable_entity
     end

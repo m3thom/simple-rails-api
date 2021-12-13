@@ -1,3 +1,6 @@
-collection @posts, object_root: false
-attributes :id, :content
-node(:type) { "Post" }
+extends 'shared/base', object: false, locals: { instance: @posts }
+
+child(@posts, root: :data) do
+  attributes :id, :content
+end
+

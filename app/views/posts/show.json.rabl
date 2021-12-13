@@ -1,3 +1,5 @@
-object false
-node(:content) { @post.content }
-node(:type) { "Post" }
+child(@post, root: :data) do
+  attributes :id, :content
+end
+
+node(:type) { Post.name }
