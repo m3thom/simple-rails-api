@@ -36,6 +36,7 @@ gem 'oj'
 gem 'devise', '~> 4.8.0'
 gem 'devise-jwt', '~> 0.9.0'
 gem 'devise-encryptable'
+gem 'aes'
 # gem 'devise_aes_encryptable'
 
 gem 'dotenv-rails'

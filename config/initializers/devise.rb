@@ -126,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '57d2f42618dbf2a7c4d80f4602b69a14c7c44cf1e7e88fbfed50bc436dbc30a6b0e869061096a27be61a4984afa5f955cae5bf512ccac008d00fcb86852f06de'
+  config.pepper = ENV['DEVISE_PEPPER']
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -239,7 +239,7 @@ Devise.setup do |config|
   #
   # Require the `devise-encryptable` gem when using anything other than bcrypt
   # config.encryptor = :sha512
-  # config.encryptor = :aes256
+  config.encryptor = :aes256
 
   # ==> Scopes configuration
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
@@ -316,8 +316,6 @@ Devise.setup do |config|
   config.jwt do |jwt|
 
     jwt.secret = ENV['DEVISE_SECRET_KEY']
-
-    warn('DEVISE_SECRET_KEY is not provided, Auth system could not work properly.') if jwt.secret.nil?
 
     jwt.dispatch_requests = [
         ['POST', %r{^/users$}], # If you change registration path for devise, do not forget to change this too.

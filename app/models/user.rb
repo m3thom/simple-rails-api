@@ -8,7 +8,11 @@ class User < ApplicationRecord
          :recoverable,
          :rememberable,
          :validatable,
-         # :encryptable,
+         :encryptable,
          :jwt_authenticatable,
          jwt_revocation_strategy: self
+
+  def decrypted_password
+    Devise::Encryptable::Encryptors::Aes256.decrypt(encrypted_password, Devise.pepper)
+  end
 end
