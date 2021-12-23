@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+amount = 575
+amount.times { |t| Post.create(content: "Content created from seed no.#{t}") }
+p "Created #{amount} Posts"
