@@ -28,18 +28,18 @@ gem 'rack-cors'
 #
 
 # Gemfile
-gem 'rabl'
+gem 'rabl', '~> 0.14.5'
 # Also add either `oj` or `yajl-ruby` as the JSON parser
-gem 'oj'
+gem 'oj', '~> 3.13.9'
 
 # Authentication gems
 gem 'devise', '~> 4.8.0'
 gem 'devise-jwt', '~> 0.9.0'
-gem 'devise-encryptable'
-gem 'aes'
+gem 'devise-encryptable', '~> 0.2.0'
+gem 'aes', '~> 0.5.1'
 # gem 'devise_aes_encryptable'
 
-gem 'dotenv-rails'
+gem 'dotenv-rails', '~> 2.7.6'
 
 # An HTTP client library that provides a common interface over many adapters
 gem 'faraday', '~> 1.8.0'
@@ -48,6 +48,8 @@ gem 'faraday', '~> 1.8.0'
 
 # The Best Pagination Ruby Gem
 gem 'pagy', '~> 5.6'
+
+gem 'fcm', '~> 1.0.6'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -35,3 +35,6 @@
 # Dotenv credential management
 /.env*
 !.env.template
+
+# Firebase credentials
+/firebase-service-account.*.json
