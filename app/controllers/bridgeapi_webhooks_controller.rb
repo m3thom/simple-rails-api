@@ -32,7 +32,7 @@ class BridgeapiWebhooksController < ApplicationController
       signature = signature_data.split('=').last
       # 'E5637CDB3A54ECA10DDA9D515E588B6BECDABA414537FFC488B63474081B90DF'
 
-      secret = ENV['BRIDGE_WEBHOOKS_SECRET']
+      secret = ENV['BRIDGEAPI_WEBHOOKS_SECRET']
 
       data = bridgeapi_webhook_params.to_json
 

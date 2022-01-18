@@ -46,11 +46,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_bridgeapi_user!
-    Faraday.post("#{ENV['BRIDGE_BASE_URL']}/users") do |req|
-      req.headers['Bridge-Version'] = ENV['BRIDGE_VERSION']
+    Faraday.post("#{ENV['BRIDGEAPI_BASE_URL']}/users") do |req|
+      req.headers['Bridge-Version'] = ENV['BRIDGEAPI_VERSION']
       req.headers['Content-Type'] = 'application/json'
-      req.headers['Client-Id'] = ENV['BRIDGE_CLIENT_ID']
-      req.headers['Client-Secret'] = ENV['BRIDGE_CLIENT_SECRET']
+      req.headers['Client-Id'] = ENV['BRIDGEAPI_CLIENT_ID']
+      req.headers['Client-Secret'] = ENV['BRIDGEAPI_CLIENT_SECRET']
       req.body = {
           email: resource.email,
           password: 'password123'
